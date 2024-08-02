@@ -2,7 +2,6 @@ import { Component, DebugElement, Injectable } from '@angular/core';
 import { TestBed, ComponentFixture, fakeAsync, tick, async, inject } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { slice } from 'lodash';
 import { expect, createGenericTestComponent } from '../testing';
 import { TreeviewConfig } from './treeview-config';
 import { TreeviewItemComponent } from './treeview-item.component';
@@ -99,7 +98,7 @@ describe('TreeviewItemComponent', () => {
             collapsedElement = fixture.debugElement.query(By.css('.fa'));
             const checkboxElements = fixture.debugElement.queryAll(By.css('.form-check-input'));
             parentCheckbox = checkboxElements[0];
-            childrenCheckboxes = slice(checkboxElements, 1);
+            childrenCheckboxes = checkboxElements.slice(1);
         }));
 
         it('should work', () => {

@@ -1,10 +1,10 @@
 import { Component, Injectable, OnInit, ViewChild } from '@angular/core';
-import { isNil, remove, reverse } from 'lodash';
 import {
     TreeviewI18n, TreeviewItem, TreeviewConfig, TreeviewHelper, TreeviewComponent,
     TreeviewEventParser, OrderDownlineTreeviewEventParser, DownlineTreeviewItem
 } from '../../lib';
 import { ProductService } from './product.service';
+import { isNil, pull, reverse } from '../../lib/utuls';
 
 @Injectable()
 export class ProductTreeviewConfig extends TreeviewConfig {
@@ -58,7 +58,7 @@ export class ProductComponent implements OnInit {
         let isRemoved = false;
         for (const tmpItem of this.items) {
             if (tmpItem === item) {
-                remove(this.items, item);
+                pull(this.items, item);
             } else {
                 isRemoved = TreeviewHelper.removeItem(tmpItem, item);
                 if (isRemoved) {

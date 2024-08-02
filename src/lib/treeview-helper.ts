@@ -1,5 +1,5 @@
-import { concat, isNil, pull } from 'lodash';
 import { TreeviewItem } from './treeview-item';
+import { isNil, pull } from './utuls';
 
 export const TreeviewHelper = {
     findItem: findItem,
@@ -84,8 +84,8 @@ function concatSelection(items: TreeviewItem[], checked: TreeviewItem[], uncheck
     let uncheckedItems = [...unchecked];
     for (const item of items) {
         const selection = item.getSelection();
-        checkedItems = concat(checkedItems, selection.checkedItems);
-        uncheckedItems = concat(uncheckedItems, selection.uncheckedItems);
+        checkedItems = checkedItems.concat(selection.checkedItems);
+        uncheckedItems = uncheckedItems.concat(selection.uncheckedItems);
     }
     return {
         checked: checkedItems,

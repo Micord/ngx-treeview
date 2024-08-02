@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, SimpleChanges, OnChanges, TemplateRef } from '@angular/core';
-import { isNil, includes } from 'lodash';
 import { TreeviewI18n } from './treeview-i18n';
 import { TreeviewItem, TreeviewSelection } from './treeview-item';
 import { TreeviewConfig } from './treeview-config';
@@ -7,6 +6,7 @@ import { TreeviewEventParser } from './treeview-event-parser';
 import { TreeviewHeaderTemplateContext } from './treeview-header-template-context';
 import { TreeviewItemTemplateContext } from './treeview-item-template-context';
 import { TreeviewHelper } from './treeview-helper';
+import { isNil } from './utuls';
 
 class FilterTreeviewItem extends TreeviewItem {
     private readonly refItem: TreeviewItem;
@@ -172,7 +172,7 @@ export class TreeviewComponent implements OnChanges {
     }
 
     private filterItem(item: TreeviewItem, filterText: string): TreeviewItem {
-        const isMatch = includes(item.text.toLowerCase(), filterText);
+        const isMatch = item.text.toLowerCase().includes(filterText);
         if (isMatch) {
             return item;
         } else {

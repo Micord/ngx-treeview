@@ -1,5 +1,5 @@
-import { isBoolean, isNil, isString } from 'lodash';
 import { TreeviewHelper } from './treeview-helper';
+import { isBoolean, isNil, isString } from './utuls';
 
 export interface TreeviewSelection {
     checkedItems: TreeviewItem[];
