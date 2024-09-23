@@ -32,18 +32,18 @@ export class DefaultTreeviewI18n extends TreeviewI18n {
   }
 
   getAllCheckboxText(): string {
-    return 'All';
+    return 'Все';
   }
 
   getFilterPlaceholder(): string {
-    return 'Filter';
+    return 'Поиск';
   }
 
   getFilterNoItemsFoundText(): string {
-    return 'No items found';
+    return 'Элементы не найдены';
   }
 
   getTooltipCollapseExpandText(isCollapse: boolean): string {
-    return isCollapse ? 'Expand' : 'Collapse';
+    return isCollapse ? 'Развернуть' : 'Свернуть';
   }
 }

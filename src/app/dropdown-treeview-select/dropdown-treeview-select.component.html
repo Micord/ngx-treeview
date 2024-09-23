@@ -1,27 +1,25 @@
 <ng-template #itemTemplate let-item="item" let-onCollapseExpand="onCollapseExpand"
   let-onCheckedChange="onCheckedChange">
   <div class="text-nowrap row-item">
-    <i *ngIf="item.children" (click)="onCollapseExpand()" aria-hidden="true" [ngSwitch]="item.collapsed">
-      <svg *ngSwitchCase="true" width="0.8rem" height="0.8rem" viewBox="0 0 16 16" class="bi bi-caret-right-fill"
-        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-      </svg>
-      <svg *ngSwitchCase="false" width="0.8rem" height="0.8rem" viewBox="0 0 16 16" class="bi bi-caret-down-fill"
-        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-      </svg>
+    <i *ngIf="item.children"
+       (click)="onCollapseExpand()"
+       aria-hidden="true"
+       [ngSwitch]="item.collapsed">
+      <i *ngSwitchCase="true" class="bi bi-caret-right-fill"></i>
+      <i *ngSwitchCase="false" class="bi bi-caret-down-fill"></i>
     </i>
     <label class="form-check-label" (click)="select(item)">{{ item.text }}</label>
   </div>
 </ng-template>
-<ng-template #headerTemplate let-config="config" let-item="item" let-onCollapseExpand="onCollapseExpand"
-  let-onCheckedChange="onCheckedChange" let-onFilterTextChange="onFilterTextChange">
+<ng-template #headerTemplate let-config="config" let-item="item"
+             let-onCollapseExpand="onCollapseExpand" let-onCheckedChange="onCheckedChange"
+             let-onFilterTextChange="onFilterTextChange">
   <div *ngIf="config.hasFilter" class="row row-filter">
     <div class="col-12">
-      <input class="form-control" type="text" [placeholder]="i18n.getFilterPlaceholder()" [(ngModel)]="filterText"
-        (ngModelChange)="onFilterTextChange($event)" />
+      <input class="form-control" type="text"
+             [placeholder]="i18n.getFilterPlaceholder()"
+             [(ngModel)]="filterText"
+             (ngModelChange)="onFilterTextChange($event)" />
     </div>
   </div>
   <div *ngIf="config.hasAllCheckBox || config.hasCollapseExpand" class="row">
@@ -55,6 +53,9 @@
   </div>
   <div *ngIf="config.hasDivider" class="dropdown-divider"></div>
 </ng-template>
-<ngx-dropdown-treeview [config]="config" [headerTemplate]="headerTemplate" [items]="items"
-  [itemTemplate]="itemTemplate">
+<ngx-dropdown-treeview
+        [config]="config"
+        [headerTemplate]="headerTemplate"
+        [items]="items"
+        [itemTemplate]="itemTemplate">
 </ngx-dropdown-treeview>
