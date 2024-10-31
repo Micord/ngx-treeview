@@ -14,8 +14,9 @@ export class DropdownMenuDirective {
 
     @HostListener('click', ['$event'])
     onClick(event: MouseEvent): void {
-      if (event.button !== 2 && event.srcElement.attributes[0]
-          && event.srcElement.attributes[0].nodeValue === 'form-check-label') {
+      const element = event.target as HTMLInputElement;
+      if (event.button !== 2 && element.attributes[0]
+          && element.attributes[0].nodeValue === 'form-check-label') {
         this.dropdown.close();
       }
     }

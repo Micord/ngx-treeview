@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { TreeviewItem } from './treeview-item';
-import {TreeviewComponent} from './treeview.component';
-import { isNil } from './utils';
+import { TreeviewItem } from '../models/treeview-item';
+import {TreeviewComponent} from '../components/treeview/treeview.component';
+import { isNil } from '../utils';
 
 @Injectable()
 export abstract class TreeviewEventParser {

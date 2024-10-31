@@ -1,3 +1,4 @@
+// @dynamic
 export default class Utils {
   static isBoolean(value): boolean { return isBoolean(value); }
   static isNil(value): boolean { return isNil(value); }
@@ -8,16 +9,16 @@ export const isBoolean = (value:any): boolean => {
   return value === true || value === false; // todo not completed; to complete from 'lodash'
 };
 
-export const isNil = (value:any): boolean => {
+export const isNil = (value: any): boolean => {
   // from 'lodash'
   return value == null;
 };
 
-export const isString = (value:any): boolean => {
-  return typeof value == 'string'; // todo not completed; to complete from 'lodash'
+export const isString = (value: any): boolean => {
+  return typeof value === 'string'; // todo not completed; to complete from 'lodash'
 };
 
-export const pull = (array:any[], item:any): any[] => {
+export const pull = (array: any[], item: any): any[] => {
   // modified 'remove' from 'lodash'
   // mutate array
   const result = [];
@@ -39,7 +40,7 @@ export const pull = (array:any[], item:any): any[] => {
   return result;
 };
 
-export const reverse = (array:any[]): any[] => {
+export const reverse = (array: any[]): any[] => {
   // from 'lodash'
   return array == null ? array : array.reverse();
 };

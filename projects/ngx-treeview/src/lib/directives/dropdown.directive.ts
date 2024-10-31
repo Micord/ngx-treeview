@@ -1,5 +1,6 @@
 import { Directive, Input, Output, HostBinding, HostListener, EventEmitter } from '@angular/core';
-import { isNil } from './utils';
+import {isNil} from "../utils";
+
 
 @Directive({
                selector: '[ngxDropdown]',

@@ -1,5 +1,5 @@
-import { TreeviewItem } from './treeview-item';
-import { isNil, pull } from './utils';
+import { TreeviewItem } from '../models/treeview-item';
+import { isNil, pull } from '../utils';
 
 export const TreeviewHelper = {
     findItem,

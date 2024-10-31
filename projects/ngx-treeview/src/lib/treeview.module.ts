@@ -35,7 +35,7 @@ import { TreeviewEventParser, DefaultTreeviewEventParser } from '../lib/helpers/
     ]
 })
 export class TreeviewModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<TreeviewModule> {
         return {
             ngModule: TreeviewModule,
             providers: [

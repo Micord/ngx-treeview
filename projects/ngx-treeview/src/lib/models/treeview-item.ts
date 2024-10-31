@@ -1,5 +1,5 @@
-import { TreeviewHelper } from './treeview-helper';
-import { isBoolean, isNil, isString } from './utils';
+import { isBoolean, isNil, isString } from '../utils';
+import {TreeviewHelper} from "../helpers/treeview-helper";
 
 export interface TreeviewSelection {
     checkedItems: TreeviewItem[];
