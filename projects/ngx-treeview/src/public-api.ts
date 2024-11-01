@@ -14,3 +14,4 @@ export * from './lib/models/treeview-i18n';
 export * from './lib/models/treeview-item-template-context';
 export * from './lib/helpers/treeview-event-parser';
 export * from './lib/helpers/treeview-helper';
+export * from './lib/utils';

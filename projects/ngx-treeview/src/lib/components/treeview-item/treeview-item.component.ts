@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
-import { isNil } from 'lodash';
 import { TreeviewItem } from '../../models/treeview-item';
 import { TreeviewConfig } from '../../models/treeview-config';
 import { TreeviewItemTemplateContext } from '../../models/treeview-item-template-context';
+import {isNil} from "../../utils";
 
 @Component({
   selector: 'ngx-treeview-item',

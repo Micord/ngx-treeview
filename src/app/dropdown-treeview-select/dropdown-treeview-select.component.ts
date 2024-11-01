@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, ViewChild, OnChanges } from '@angular/core';
-import { isNil } from 'lodash';
 import { TreeviewI18n, TreeviewItem, TreeviewConfig, DropdownTreeviewComponent, TreeviewHelper } from 'ngx-treeview';
 import { DropdownTreeviewSelectI18n } from './dropdown-treeview-select-i18n';
+import {isNil} from "../../../projects/ngx-treeview/src/lib/utils";
 
 @Component({
   selector: 'ngx-dropdown-treeview-select',
@@ -16,9 +16,10 @@ import { DropdownTreeviewSelectI18n } from './dropdown-treeview-select-i18n';
 export class DropdownTreeviewSelectComponent implements OnChanges {
   @Input() config: TreeviewConfig;
   @Input() items: TreeviewItem[];
+  @Input() maxHeight: number;
   @Input() value: any;
   @Output() valueChange = new EventEmitter<any>();
-  @ViewChild(DropdownTreeviewComponent, { static: false }) dropdownTreeviewComponent: DropdownTreeviewComponent;
+  @ViewChild(DropdownTreeviewComponent) dropdownTreeviewComponent: DropdownTreeviewComponent;
   filterText: string;
   private dropdownTreeviewSelectI18n: DropdownTreeviewSelectI18n;
 
@@ -35,13 +36,14 @@ export class DropdownTreeviewSelectComponent implements OnChanges {
   }
 
   ngOnChanges(): void {
+    if (this.maxHeight) {
+      this.config.maxHeight = this.maxHeight;
+    }
     this.updateSelectedItem();
   }
 
   select(item: TreeviewItem): void {
-    if (!item.children) {
-      this.selectItem(item);
-    }
+    this.selectItem(item);
   }
 
   private updateSelectedItem(): void {
