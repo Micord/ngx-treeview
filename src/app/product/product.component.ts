@@ -25,7 +25,7 @@ export class ProductTreeviewConfig extends TreeviewConfig {
   ]
 })
 export class ProductComponent implements OnInit {
-  @ViewChild(TreeviewComponent, { static: false }) treeviewComponent: TreeviewComponent;
+  @ViewChild(TreeviewComponent) treeviewComponent: TreeviewComponent;
   items: TreeviewItem[];
   rows: string[];
 
