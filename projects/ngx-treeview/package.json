@@ -31,5 +31,8 @@
   },
   "dependencies": {
     "tslib": "1.9.3"
+  },
+  "publishConfig": {
+    "registry": "https://repo.micord.ru/repository/npm-private/"
   }
 }
