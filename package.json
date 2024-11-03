@@ -77,5 +77,8 @@
     "protractor": "~7.0.0",
     "tslint": "~6.1.0",
     "typescript": "3.2.4"
+  },
+  "publishConfig": {
+    "registry": "https://repo.micord.ru/repository/npm-private/"
   }
 }
