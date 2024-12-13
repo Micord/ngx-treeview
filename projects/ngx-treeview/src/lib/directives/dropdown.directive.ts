@@ -22,7 +22,7 @@ export class DropdownDirective {
 
     @HostListener('document:click', ['$event'])
     onDocumentClick(event: MouseEvent): void {
-        if (event.button !== 2 && !this.isEventFromToggle(event)) {
+        if (event.button !== 2 && !this.isDocumentEventFromToggle(event)) {
             this.close();
         }
     }
@@ -49,7 +49,8 @@ export class DropdownDirective {
         }
     }
 
-    private isEventFromToggle(event: MouseEvent): boolean {
-        return !isNil(this.toggleElement) && this.toggleElement.contains(event.target);
+    private isDocumentEventFromToggle(event: MouseEvent): boolean {
+        return !isNil(this.toggleElement) && this.toggleElement.contains(event.target) ||
+               event.composedPath && event.composedPath().length > 0 && event.composedPath()[0] === this.toggleElement;
     }
 }
